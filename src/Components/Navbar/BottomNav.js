@@ -1,44 +1,47 @@
-import * as React from 'react';
-//import Box from '@mui/material/Box';
+import React,{useEffect} from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import './navbar.css'
-import { makeStyles } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import { useNavigate } from 'react-router-dom';
 
-const useStyles = makeStyles({
-    root: {
-        //width: 100,
-        position:"fixed",
-        bottom:0,
-        backgroundColor: "#2d313a",
-        zIndex:100,
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import CssBaseline from '@mui/material/CssBaseline';
 
-    }
-})
+
 
 export default function SimpleBottomNavigation() {
-const classes = useStyles();
+  //const ref = React.useRef(null);
   const [value, setValue] = React.useState(0);
+  const navigate=useNavigate();
+
+  useEffect(() => {
+    //ref.current.ownerDocument.body.scrollTop = 0;
+    if(value === 0 )
+      navigate("/home")
+
+      if(value === 1 )
+      navigate("/list")
+  }, [value, navigate])
+  
 
   return (
-    //<Box sx={{ width: 500 }}>
-    <div className='navbar'>
+    <Box>
+      <CssBaseline />
+      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0,backgroundColor: "#EC994B" }} elevation={3}>
       <BottomNavigation
+        showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-        showLabels
-        className={classes.root}
       >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        
       </BottomNavigation>
-      </div>
-    //</Box>
+      </Paper>
+    </Box>
   );
 }
