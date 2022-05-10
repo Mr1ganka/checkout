@@ -4,7 +4,7 @@ import "./header.css"
 
 const Header = () => {
   return (
-    <span className='header'>Flimo</span>
+    <span onClick={()=> window.scroll(0,0)} className='header'>Flimo</span>
   )
 }
 

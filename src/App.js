@@ -5,14 +5,16 @@ import {BrowserRouter as Router, Route, Routes,} from 'react-router-dom';
 
  import  Home  from './Pages/Home/Home';
  import  PlayList  from './Pages/Playlist/PlayList';
+ import Search from './Pages/Search/Search';
 
 import Header from './Components/Header/Header';
 import SimpleBottomNavigation from './Components/Navbar/BottomNav';
 
+
 // import BottomNav from './Components/Navbar/BottomNav';
 
 
-const App =() => {
+export default function App ()  {
   return (
   <Router>
    <Header/>
@@ -21,9 +23,12 @@ const App =() => {
        <Route exact path="/home" element={<Home/>}/>
           
         
-         <Route exact path="/list" element={<PlayList/>} />
+         <Route exact path="/list" element={<PlayList/>}/>
+
+         <Route exact path="/search" element={<Search/>}/>
        
-         </Routes></div>
+         </Routes>
+         </div>
   <SimpleBottomNavigation/> 
   </Router>
   
@@ -42,4 +47,3 @@ const App =() => {
   );
 }
 
-export default App;

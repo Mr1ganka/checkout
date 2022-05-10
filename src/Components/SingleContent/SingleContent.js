@@ -1,5 +1,7 @@
+import Badge from '@mui/material/Badge';
 import React from 'react'
 import { img_300, unavailable } from '../../config/config'
+import "./singlecontent.css"
 
 const SingleContent = ({
     id,
@@ -10,12 +12,14 @@ const SingleContent = ({
     vote_average,
 }) => {
   return (
-    <div>
+    <div className='media'>
+      <Badge badgeContent={vote_average} color={vote_average>6? "primary":"secondary"}/>
         <img className='poster'
         src={poster? `${img_300}/${poster}` : unavailable} alt="title"/>
         <b className='title'>{title}</b>
-        <span>{media_type==="tv" ? "TV series" :"Movie"}</span>
-        <span className='SunTitle'>{date}</span>
+        <span className='subTitle'>{media_type==="tv" ? "TV series" :"Movie"}
+        <span className='subTitle'>{date}</span>
+        </span>
     </div>
   )
 }

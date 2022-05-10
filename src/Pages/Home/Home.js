@@ -1,30 +1,35 @@
 
 import axios from 'axios'
 import React, { useState, useEffect } from "react";
+import Paging from '../../Components/Paging/Paging';
 import SingleContent from '../../Components/SingleContent/SingleContent';
+import "./home.css"
 
 
 
 const Home = () => {
-  console.log(process.env.REACT_APP_BASE_URL);
+  const [page, setPage] = useState(1);
+  //console.log(process.env.REACT_APP_BASE_URL);
 
   const [content, setContent] = useState([]);
 
   const fetchTrending = async () =>{
   const {data} = await axios.get(
-    'https://api.themoviedb.org/3/trending/all/day?api_key=d9728d15b94b5daee1cb9c222247c58f'
+    `https://api.themoviedb.org/3/trending/all/day?api_key=d9728d15b94b5daee1cb9c222247c58f&page=${page}`
     // 'https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_BASE_URL}'
     );
   
-  console.log(data);
+  //console.log(data);
 
   setContent(data.results);
    
   };
 
 useEffect(() => {
+  window.scroll(0, 0);
   fetchTrending();
-}, []);
+  // eslint-disable-next-line
+}, [page]);
 
 
   return (
@@ -44,6 +49,7 @@ useEffect(() => {
         />
         )}
     </div>
+    <Paging setPage={setPage}/>
     </div>
   )
 }

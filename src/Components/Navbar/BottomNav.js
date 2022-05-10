@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,8 +22,13 @@ export default function SimpleBottomNavigation() {
     if(value === 0 )
       navigate("/home")
 
-      if(value === 1 )
-      navigate("/list")
+    if(value === 1 )
+    navigate("/list")
+
+    if(value === 3 )
+      navigate("/search")
+
+      
   }, [value, navigate])
   
 
@@ -39,6 +45,7 @@ export default function SimpleBottomNavigation() {
       >
         <BottomNavigationAction label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Search" icon={<SearchIcon />} />
         
       </BottomNavigation>
       </Paper>
