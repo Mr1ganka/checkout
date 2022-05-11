@@ -20,30 +20,15 @@ export default function App ()  {
    <Header/>
   <div className='app'>
     <Routes>
-       <Route exact path="/home" element={<Home/>}/>
-          
-        
-         <Route exact path="/list" element={<PlayList/>}/>
+       <Route exact path="/" element={<Home/>}/>
 
-         <Route exact path="/search" element={<Search/>}/>
-       
+       <Route exact path="/list" element={<PlayList/>}/>
+
+        <Route exact path="/search" element={<Search/>}/>
          </Routes>
          </div>
   <SimpleBottomNavigation/> 
   </Router>
-  
-    // 
-    //   <Navbar/>
-    //   <main>
-    //   <Routes>
-    //     <Route exact path="/" element={<Home/>}/>
-          
-        
-    //     <Route exact path="/list" element={<PlayList/>} />
-       
-    //     </Routes>
-    //   </main>
-    // </Router>
   );
 }
 

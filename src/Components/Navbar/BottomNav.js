@@ -20,12 +20,12 @@ export default function SimpleBottomNavigation() {
   useEffect(() => {
     //ref.current.ownerDocument.body.scrollTop = 0;
     if(value === 0 )
-      navigate("/home")
+      navigate("/")
 
     if(value === 1 )
     navigate("/list")
 
-    if(value === 3 )
+    if(value === 2 )
       navigate("/search")
 
       
